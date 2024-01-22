@@ -11,8 +11,13 @@ public class Message {
 	public Message(byte[] data) {
 		
 		// TODO - START
-		
-		if (true)
+
+		if (data.length > 127)
+			throw new IllegalArgumentException("Data kan ikkje vere meir enn 127 bits");
+
+		this.data = data;
+
+		if (this.data == null)
 			throw new UnsupportedOperationException(TODO.constructor("Message"));
 			
 		// TODO - END
