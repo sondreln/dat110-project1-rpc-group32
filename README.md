@@ -110,7 +110,7 @@ The implementation of the messaging service is to be located in the `no.hvl.dat1
 
 You are required to implement the methods marked with `TODO` in the following classes
 
-- [ ] `Message.java` implementing the constructor, including a check that the data is not null and not longer than 127 bytes
+- [x] `Message.java` implementing the constructor, including a check that the data is not null and not longer than 127 bytes
 
 - [ ] `MessageUtils.java` implementing methods for encapsulation and decapsulation of data according to the segment format described above.
 
