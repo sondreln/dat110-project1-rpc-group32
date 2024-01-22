@@ -30,8 +30,19 @@ public class MessagingClient {
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
+
+		try {
+			clientSocket = new Socket(server, port);
+			connection = new MessageConnection(clientSocket);
+			
+
+		} catch (Exception ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+			throw new RuntimeException("Feila å koble seg til server");
+		}
 		
 		// TODO - END
 		return connection;
