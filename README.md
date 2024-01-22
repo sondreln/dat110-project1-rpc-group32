@@ -110,15 +110,15 @@ The implementation of the messaging service is to be located in the `no.hvl.dat1
 
 You are required to implement the methods marked with `TODO` in the following classes
 
-[] - `Message.java` implementing the constructor, including a check that the data is not null and not longer than 127 bytes
+[]- `Message.java` implementing the constructor, including a check that the data is not null and not longer than 127 bytes
 
-[] - `MessageUtils.java` implementing methods for encapsulation and decapsulation of data according to the segment format described above.
+[]- `MessageUtils.java` implementing methods for encapsulation and decapsulation of data according to the segment format described above.
 
-[] - `Connection.java` implementing the connection abstraction linking the connection to the underlying TCP socket and associated input and output data streams that is to be used for sending and receiving messages.
+[]- `Connection.java` implementing the connection abstraction linking the connection to the underlying TCP socket and associated input and output data streams that is to be used for sending and receiving messages.
 
-[] - `MessagingClient.java` implementing the methods for the client-side of the messaging service and responsible for creating the underlying TCP socket on the client-side.
+[]- `MessagingClient.java` implementing the methods for the client-side of the messaging service and responsible for creating the underlying TCP socket on the client-side.
 
-[] - `MessagingServer.java` implementing the methods for the server-side of the messaging service. In the current project, a server is only required to handle a single connection from a client.
+[]- `MessagingServer.java` implementing the methods for the server-side of the messaging service. In the current project, a server is only required to handle a single connection from a client.
 
 Unit-tests for the messaging layer can be found in the `no.hvl.dat110.messaging.tests` package.
 
