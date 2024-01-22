@@ -28,11 +28,18 @@ public class MessagingServer {
 
 		MessageConnection connection = null;
 
-		// TODO - START
+		// TODO - START :: OK?
 		// accept TCP connection on welcome socket and create messaging connection to be returned
 
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
+		try {
+			welcomeSocket.accept();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+			throw new RuntimeException("Kunne ikkje åpne kobling");
+
+		}
 		
 		// TODO - END
 		

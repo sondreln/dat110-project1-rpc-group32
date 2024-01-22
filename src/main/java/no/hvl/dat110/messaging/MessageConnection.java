@@ -36,7 +36,7 @@ public class MessageConnection {
 	public void send(Message message) {
 
 		
-		// TODO - START
+		// TODO - START :: OK?
 		// encapsulate the data contained in the Message and write to the output stream
 		
 		//data = MessageUtils.encapsulate(message);
@@ -47,7 +47,6 @@ public class MessageConnection {
 			
 
 		} catch (IOException ex) {
-			// TODO: handle exception
 			ex.printStackTrace();
 			throw new RuntimeException("Feil med sending av melding");
 		}
@@ -65,7 +64,7 @@ public class MessageConnection {
 		Message message = null;
 		byte[] data;
 		
-		// TODO - START
+		// TODO - START :: OK?
 		// read a segment from the input stream and decapsulate data into a Message
 		
 		// if (true)
@@ -81,7 +80,6 @@ public class MessageConnection {
 			message = MessageUtils.decapsulate(data);
 
 		} catch (IOException ex) {
-			// TODO: handle exception
 			ex.printStackTrace();
 			throw new RuntimeException("Feil oppstod når vi henta melding");
 		}

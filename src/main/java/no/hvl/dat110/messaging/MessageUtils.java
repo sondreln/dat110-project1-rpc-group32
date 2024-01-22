@@ -16,7 +16,7 @@ public class MessageUtils {
 		byte[] segment = null;
 		byte[] data;
 		
-		// TODO - START
+		// TODO - START :: OK?
 		
 		// encapulate/encode the payload data of the message and form a segment
 		// according to the segment format for the messaging layer
@@ -46,7 +46,7 @@ public class MessageUtils {
 
 		Message message = null;
 		
-		// TODO - START
+		// TODO - START :: OK?
 		// decapsulate segment and put received payload data into a message
 		
 		int size = segment[0];

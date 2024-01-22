@@ -10,7 +10,7 @@ public class Message {
 	// construction a Message with the data provided
 	public Message(byte[] data) {
 		
-		// TODO - START
+		// TODO - START :: OK?
 
 		if (data.length > 127)
 			throw new IllegalArgumentException("Data kan ikkje vere meir enn 127 bits");

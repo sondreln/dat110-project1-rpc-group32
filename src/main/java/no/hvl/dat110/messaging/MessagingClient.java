@@ -26,7 +26,7 @@ public class MessagingClient {
 
 		MessageConnection connection = null;
 		
-		// TODO - START
+		// TODO - START :: OK?
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
 		
@@ -39,7 +39,6 @@ public class MessagingClient {
 			
 
 		} catch (Exception ex) {
-			// TODO: handle exception
 			ex.printStackTrace();
 			throw new RuntimeException("Feila å koble seg til server");
 		}

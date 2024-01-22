@@ -10,13 +10,19 @@ public class RPCUtils {
 		
 		byte[] rpcmsg = null;
 		
-		// TODO - START
+		// TODO - START :: OK?
 		
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
 		
-		if (true)
+		if (payload == null)
 			throw new UnsupportedOperationException(TODO.method());
 		
+		rpcmsg = new byte[payload.length +1];
+
+		rpcmsg[0] = rpcid;
+
+		System.arraycopy(payload, 0, rpcmsg, 1, payload.length);
+
 		// TODO - END
 		
 		return rpcmsg;
@@ -26,12 +32,17 @@ public class RPCUtils {
 		
 		byte[] payload = null;
 		
-		// TODO - START
+		// TODO - START :: OK ?
 		
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
 		
-		if (true)
+		if (rpcmsg == null)
 			throw new UnsupportedOperationException(TODO.method());
+
+		payload = new byte[rpcmsg.length - 1];
+
+		System.arraycopy(rpcmsg, 1, payload, 0, rpcmsg.length -1);
+		
 		
 		// TODO - END
 		
@@ -44,11 +55,12 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START 
+		// TODO - START :: OK?
 		
-		if (true)
+		if (str == null)
 			throw new UnsupportedOperationException(TODO.method());
 		
+		encoded = str.getBytes();
 		// TODO - END
 		
 		return encoded;
@@ -59,11 +71,12 @@ public class RPCUtils {
 		
 		String decoded = null; 
 		
-		// TODO - START 
+		// TODO - START :: OK?
 		
-		if (true)
+		if (data == null)
 			throw new UnsupportedOperationException(TODO.method());
 		
+		decoded = new String(data);
 		// TODO - END
 		
 		return decoded;
@@ -73,7 +86,9 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START 
+		// TODO - START :: OK??
+
+		encoded = new byte[1];
 		
 		if (true)
 			throw new UnsupportedOperationException(TODO.method());
@@ -86,10 +101,13 @@ public class RPCUtils {
 	
 	public static void unmarshallVoid(byte[] data) {
 		
-		// TODO
+		// TODO :: OK ?
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		if(data == null || data.length != 0)
+			throw new IllegalArgumentException("Forventa en tom data til umarshall av void");
+
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
 		
 	}
 
@@ -120,10 +138,18 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START 
+		// TODO - START :: OK?
+
+		//  **Hint** Remember that an integer in Java is 4 bytes
+		encoded = new byte[4];
+		encoded[0] = (byte) (x >> 24);
+		encoded[1] = (byte) (x >> 16);
+		encoded[2] = (byte) (x >> 8);
+		encoded[3] = (byte) (x);
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO - END
 		
@@ -135,11 +161,17 @@ public class RPCUtils {
 		
 		int decoded = 0;
 		
-		// TODO - START 
+		// TODO - START :: OK? 
+		// |= er det samme som A = A | B; 
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
 		
+		decoded |= (data[0] & 0xFF) << 24;
+		decoded |= (data[1] & 0xFF) << 16;
+		decoded |= (data[2] & 0xFF) << 8;
+		decoded |= (data[3] & 0xFF);
+
 		// TODO - END
 		
 		return decoded;

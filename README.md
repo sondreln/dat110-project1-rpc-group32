@@ -118,7 +118,7 @@ You are required to implement the methods marked with `TODO` in the following cl
 
 - [x] `MessagingClient.java` implementing the methods for the client-side of the messaging service and responsible for creating the underlying TCP socket on the client-side.
 
-- [ ] `MessagingServer.java` implementing the methods for the server-side of the messaging service. In the current project, a server is only required to handle a single connection from a client.
+- [x] `MessagingServer.java` implementing the methods for the server-side of the messaging service. In the current project, a server is only required to handle a single connection from a client.
 
 Unit-tests for the messaging layer can be found in the `no.hvl.dat110.messaging.tests` package.
 
@@ -148,11 +148,11 @@ The format of the request message (which method and parameter value) and respons
 
 The implementation of the RPC layer is to be located in the `no.hvl.dat110.rpc` package. You are required to provide the missing method implementations in the following classes
 
-- `RPCUtils.java` containing utility methods for encapsulation/decapsulation for RPC messages, and the unmarshalling and marshalling of the supported data types. The implementation of the marshalling/unmarshalling of `booleans` is provided and can be used for inspiration. **Hint** Remember that an integer in Java is 4 bytes and see byte buffers in Java: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/ByteBuffer.html
+- [x] `RPCUtils.java` containing utility methods for encapsulation/decapsulation for RPC messages, and the unmarshalling and marshalling of the supported data types. The implementation of the marshalling/unmarshalling of `booleans` is provided and can be used for inspiration. **Hint** Remember that an integer in Java is 4 bytes and see byte buffers in Java: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/ByteBuffer.html
 
-- `RPCClient.java` implementing the client-side of the RPC layer using the client-side of the underlying messaging layer for communication.
+- [ ] `RPCClient.java` implementing the client-side of the RPC layer using the client-side of the underlying messaging layer for communication.
 
-- `RPCServer.java` implementing the server-side of the RPC layer using the server-side of the underlying messaging layer for communication. The server contains a hash-map which is used to register RPC classes containing methods for remote method calls (invocation).
+- [ ] `RPCServer.java` implementing the server-side of the RPC layer using the server-side of the underlying messaging layer for communication. The server contains a hash-map which is used to register RPC classes containing methods for remote method calls (invocation).
 
 Unit-tests for the RPC utilities can be found in the `TestRPCUtils.java` class and unit-tests testing the remote procedure call mechanism can be found in the `TestRPC.java` class.  
 
