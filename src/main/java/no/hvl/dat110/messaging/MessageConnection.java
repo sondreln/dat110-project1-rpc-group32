@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.net.Socket;
 
 import no.hvl.dat110.TODO;
+import no.hvl.dat110.messaging.MessageUtils.*;
 
 
 public class MessageConnection {
@@ -34,11 +35,22 @@ public class MessageConnection {
 
 	public void send(Message message) {
 
-		byte[] data;
 		
 		// TODO - START
 		// encapsulate the data contained in the Message and write to the output stream
+		
+		//data = MessageUtils.encapsulate(message);
+		try {
+			byte[] data = MessageUtils.encapsulate(message);
+			this.outStream.write(data);
+			this.outStream.flush();
+			
 
+		} catch (IOException ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+			throw new RuntimeException("Feil med sending av melding");
+		}
 		
 		
 		if (true)
@@ -56,8 +68,23 @@ public class MessageConnection {
 		// TODO - START
 		// read a segment from the input stream and decapsulate data into a Message
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		// if (true)
+		// 	throw new UnsupportedOperationException(TODO.method());
+
+		try {
+			data = new byte[127];
+			int read = inStream.read(data);
+
+			if(read == -1)
+				throw new IOException("Du har nådd slutten på streamen");
+
+			message = MessageUtils.decapsulate(data);
+
+		} catch (IOException ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+			throw new RuntimeException("Feil oppstod når vi henta melding");
+		}
 		
 		// TODO - END
 		

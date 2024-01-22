@@ -112,9 +112,9 @@ You are required to implement the methods marked with `TODO` in the following cl
 
 - [x] `Message.java` implementing the constructor, including a check that the data is not null and not longer than 127 bytes
 
-- [ ] `MessageUtils.java` implementing methods for encapsulation and decapsulation of data according to the segment format described above.
+- [x] `MessageUtils.java` implementing methods for encapsulation and decapsulation of data according to the segment format described above.
 
-- [ ] `Connection.java` implementing the connection abstraction linking the connection to the underlying TCP socket and associated input and output data streams that is to be used for sending and receiving messages.
+- [x] `Connection.java` implementing the connection abstraction linking the connection to the underlying TCP socket and associated input and output data streams that is to be used for sending and receiving messages.
 
 - [ ] `MessagingClient.java` implementing the methods for the client-side of the messaging service and responsible for creating the underlying TCP socket on the client-side.
 
