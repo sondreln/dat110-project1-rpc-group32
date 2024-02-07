@@ -6,10 +6,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-import no.hvl.dat110.TODO;
-import no.hvl.dat110.messaging.MessageUtils.*;
-
-
 public class MessageConnection {
 
 	private DataOutputStream outStream; // for writing bytes to the underlying TCP connection
@@ -42,34 +38,25 @@ public class MessageConnection {
 		//data = MessageUtils.encapsulate(message);
 		try {
 			byte[] data = MessageUtils.encapsulate(message);
-			this.outStream.write(data);
-			this.outStream.flush();
+			outStream.write(data);
+			outStream.flush();
 			
 
 		} catch (IOException ex) {
 			ex.printStackTrace();
 			throw new RuntimeException("Feil med sending av melding");
 		}
-		
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-			
-		// TODO - END
 
 	}
 
 	public Message receive() {
 
-		Message message = null;
+		Message message;
 		byte[] data;
 		
 		// TODO - START :: OK?
 		// read a segment from the input stream and decapsulate data into a Message
 		
-		// if (true)
-		// 	throw new UnsupportedOperationException(TODO.method());
-
 		try {
 			data = new byte[127];
 			int read = inStream.read(data);
@@ -83,8 +70,6 @@ public class MessageConnection {
 			ex.printStackTrace();
 			throw new RuntimeException("Feil oppstod når vi henta melding");
 		}
-		
-		// TODO - END
 		
 		return message;
 		

@@ -22,8 +22,6 @@ public class RPCUtils {
 		rpcmsg[0] = rpcid;
 
 		System.arraycopy(payload, 0, rpcmsg, 1, payload.length);
-
-		// TODO - END
 		
 		return rpcmsg;
 	}
@@ -43,11 +41,7 @@ public class RPCUtils {
 
 		System.arraycopy(rpcmsg, 1, payload, 0, rpcmsg.length -1);
 		
-		
-		// TODO - END
-		
 		return payload;
-		
 	}
 
 	// convert String to byte array
@@ -61,8 +55,7 @@ public class RPCUtils {
 			throw new UnsupportedOperationException(TODO.method());
 		
 		encoded = str.getBytes();
-		// TODO - END
-		
+
 		return encoded;
 	}
 
@@ -77,7 +70,6 @@ public class RPCUtils {
 			throw new UnsupportedOperationException(TODO.method());
 		
 		decoded = new String(data);
-		// TODO - END
 		
 		return decoded;
 	}
@@ -90,11 +82,6 @@ public class RPCUtils {
 
 		encoded = new byte[1];
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-				
-		// TODO - END
-		
 		return encoded;
 		
 	}
@@ -105,10 +92,6 @@ public class RPCUtils {
 		
 		if(data == null || data.length != 0)
 			throw new IllegalArgumentException("Forventa en tom data til umarshall av void");
-
-		// if (true)
-		// 	throw new UnsupportedOperationException(TODO.method());
-		
 	}
 
 	// convert boolean to a byte array representation
@@ -147,12 +130,6 @@ public class RPCUtils {
 		encoded[2] = (byte) (x >> 8);
 		encoded[3] = (byte) (x);
 		
-
-		// if (true)
-		// 	throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
-		
 		return encoded;
 	}
 	
@@ -163,17 +140,12 @@ public class RPCUtils {
 		
 		// TODO - START :: OK? 
 		// |= er det samme som A = A | B; 
-		
-		// if (true)
-		// 	throw new UnsupportedOperationException(TODO.method());
-		
+
 		decoded |= (data[0] & 0xFF) << 24;
 		decoded |= (data[1] & 0xFF) << 16;
 		decoded |= (data[2] & 0xFF) << 8;
 		decoded |= (data[3] & 0xFF);
 
-		// TODO - END
-		
 		return decoded;
 		
 	}

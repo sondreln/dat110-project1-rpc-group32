@@ -2,7 +2,6 @@ package no.hvl.dat110.rpc;
 
 import java.util.HashMap;
 
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.MessageConnection;
 import no.hvl.dat110.messaging.Message;
 import no.hvl.dat110.messaging.MessagingServer;
@@ -70,10 +69,7 @@ public class RPCServer {
 				e.printStackTrace();
 				throw new RuntimeException("Kjøring av RPC failet");			
 		   }
-		   // TODO - END
-
-		}
-	
+		}	
 	}
 	
 	// used by server side method implementations to register themselves in the RPC server

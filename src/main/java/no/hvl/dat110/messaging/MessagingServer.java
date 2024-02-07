@@ -3,7 +3,7 @@ package no.hvl.dat110.messaging;
 import java.io.IOException;
 import java.net.ServerSocket;
 
-import no.hvl.dat110.TODO;
+//import no.hvl.dat110.TODO;
 
 public class MessagingServer {
 
@@ -31,8 +31,6 @@ public class MessagingServer {
 		// TODO - START :: OK?
 		// accept TCP connection on welcome socket and create messaging connection to be returned
 
-		// if (true)
-		// 	throw new UnsupportedOperationException(TODO.method());
 		try {
 			welcomeSocket.accept();
 		} catch (IOException ex) {
@@ -40,8 +38,6 @@ public class MessagingServer {
 			throw new RuntimeException("Kunne ikkje åpne kobling");
 
 		}
-		
-		// TODO - END
 		
 		return connection;
 

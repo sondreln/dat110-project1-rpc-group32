@@ -72,6 +72,7 @@ public class TestMessaging {
 							MessageUtils.MESSAGINGPORT);
 
 					MessageConnection connection = client.connect();
+					System.out.println(client.toString());
 
 					Message message1 = new Message(clientsent);
 

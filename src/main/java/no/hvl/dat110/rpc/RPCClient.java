@@ -1,6 +1,5 @@
 package no.hvl.dat110.rpc;
 
-import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.*;
 
 public class RPCClient {
@@ -28,7 +27,6 @@ public class RPCClient {
 			e.printStackTrace();
 			throw new RuntimeException("Feil på oppkobling til RPC server");
 		}
-		// TODO - END
 	}
 	
 	public void disconnect() {
@@ -45,8 +43,6 @@ public class RPCClient {
 				throw new RuntimeException("Feil på frakobling til RPC server");
 			}
 		}
-		
-		// TODO - END
 	}
 
 	/*
@@ -86,8 +82,5 @@ public class RPCClient {
 			e.printStackTrace();
 			throw new RuntimeException("RPC-call feilet");
 		}
-		
-		// TODO - END	
 	}
-
 }
