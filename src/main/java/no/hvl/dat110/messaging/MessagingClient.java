@@ -21,25 +21,19 @@ public class MessagingClient {
 
 		// client-side socket for underlying TCP connection to messaging server
 		MessageConnection connection = null;
-		Socket clientSocket;
 		
 		// TODO - START :: OK?
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
 
 		try {
-			clientSocket = new Socket(this.server, this.port);
+			Socket clientSocket = new Socket(server, port);
 			connection = new MessageConnection(clientSocket);
 		} catch (UnknownHostException e) {
-			System.err.println("Don't know about host " + this.server);
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.err.println("Couldn't get I/O for the connection to " +
-							   this.server);
 			e.printStackTrace();
-		} catch (Exception ex) {
-			ex.printStackTrace();
-		}
+		} 
 
 		return connection;
 	}

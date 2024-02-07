@@ -10,11 +10,9 @@ public class Message {
 		
 		// TODO - START :: OK?
 
-		if (data.length > 127)
-			throw new IllegalArgumentException("Data kan ikkje vere meir enn 127 bits");
-
-		this.data = data;
-
+		if (data.length < MessageUtils.SEGMENTSIZE){
+			this.data = data;
+		}
 	}
 
 	public byte[] getData() {

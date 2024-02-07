@@ -11,14 +11,13 @@ public class MessageUtils {
 
 	public static byte[] encapsulate(Message message) {
 		
-		byte[] segment = null;
+		byte[] segment;
 		byte[] data;
 		
 		segment = new byte[SEGMENTSIZE];
 		
 		data = message.getData();
 
-		// Blir og egentlig håndtert i Message? 
 		if(data.length > SEGMENTSIZE - 1) {
 			throw new IllegalArgumentException("Message data er for stor!");
 		}

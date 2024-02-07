@@ -37,9 +37,9 @@ public class MessageConnection {
 		
 		//data = MessageUtils.encapsulate(message);
 		try {
-			byte[] data = MessageUtils.encapsulate(message);
-			outStream.write(data);
-			outStream.flush();
+			//byte[] data = MessageUtils.encapsulate(message);
+			outStream.write(MessageUtils.encapsulate(message));
+			//outStream.flush();
 			
 
 		} catch (IOException ex) {
@@ -51,24 +51,18 @@ public class MessageConnection {
 
 	public Message receive() {
 
-		Message message;
-		byte[] data;
+		byte[] data = new byte[MessageUtils.SEGMENTSIZE];
+		Message message = new Message(data);
 		
 		// TODO - START :: OK?
 		// read a segment from the input stream and decapsulate data into a Message
 		
 		try {
-			data = new byte[127];
-			int read = inStream.read(data);
-
-			if(read == -1)
-				throw new IOException("Du har nådd slutten på streamen");
-
+			inStream.read(data);
 			message = MessageUtils.decapsulate(data);
 
 		} catch (IOException ex) {
 			ex.printStackTrace();
-			throw new RuntimeException("Feil oppstod når vi henta melding");
 		}
 		
 		return message;
