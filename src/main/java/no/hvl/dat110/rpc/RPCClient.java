@@ -18,12 +18,16 @@ public class RPCClient {
 	
 	public void connect() {
 		
-		// TODO - START
+		// TODO - START :: OK?
 		// connect using the RPC client
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
+		try {
+			connection = msgclient.connect();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("Feil på oppkobling til RPC server");
+		}
 		// TODO - END
 	}
 	
@@ -32,8 +36,15 @@ public class RPCClient {
 		// TODO - START
 		// disconnect by closing the underlying messaging connection
 		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		if (connection != null){
+			try {
+				connection.close();
+				connection = null;
+			} catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("Feil på frakobling til RPC server");
+			}
+		}
 		
 		// TODO - END
 	}
@@ -48,7 +59,9 @@ public class RPCClient {
 	public byte[] call(byte rpcid, byte[] param) {
 		
 		byte[] returnval = null;
-		
+		byte[] rpcReq = RPCUtils.encapsulate(rpcid, param);
+
+
 		// TODO - START
 
 		/*
@@ -59,12 +72,22 @@ public class RPCClient {
 
 		*/
 				
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
+		try {
+			connection.send(new Message(rpcReq));
+
+			Message reply = connection.receive();
+
+			byte[] rpcReply = reply.getData();
+
+			returnval = RPCUtils.decapsulate(rpcReply);
+
+			return returnval;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new RuntimeException("RPC-call feilet");
+		}
 		
-		// TODO - END
-		return returnval;
-		
+		// TODO - END	
 	}
 
 }
