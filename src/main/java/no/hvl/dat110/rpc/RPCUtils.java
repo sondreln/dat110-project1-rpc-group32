@@ -1,7 +1,7 @@
 package no.hvl.dat110.rpc;
 
-import java.nio.ByteBuffer;
-import java.util.Arrays;
+//import java.nio.ByteBuffer;
+//import java.util.Arrays;
 import no.hvl.dat110.TODO;
 
 public class RPCUtils {
@@ -9,8 +9,6 @@ public class RPCUtils {
 	public static byte[] encapsulate(byte rpcid, byte[] payload) {
 		
 		byte[] rpcmsg = null;
-		
-		// TODO - START :: OK?
 		
 		// Encapsulate the rpcid and payload in a byte array according to the RPC message syntax / format
 		
@@ -30,8 +28,6 @@ public class RPCUtils {
 		
 		byte[] payload = null;
 		
-		// TODO - START :: OK ?
-		
 		// Decapsulate the rpcid and payload in a byte array according to the RPC message syntax
 		
 		if (rpcmsg == null)
@@ -49,8 +45,6 @@ public class RPCUtils {
 		
 		byte[] encoded = null;
 		
-		// TODO - START :: OK?
-		
 		if (str == null)
 			throw new UnsupportedOperationException(TODO.method());
 		
@@ -64,8 +58,6 @@ public class RPCUtils {
 		
 		String decoded = null; 
 		
-		// TODO - START :: OK?
-		
 		if (data == null)
 			throw new UnsupportedOperationException(TODO.method());
 		
@@ -77,8 +69,6 @@ public class RPCUtils {
 	public static byte[] marshallVoid() {
 		
 		byte[] encoded = null;
-		
-		// TODO - START :: OK??
 
 		encoded = new byte[1];
 		
@@ -87,8 +77,6 @@ public class RPCUtils {
 	}
 	
 	public static void unmarshallVoid(byte[] data) {
-		
-		// TODO :: OK ?
 		
 		if(data == null || data.length != 0)
 			throw new IllegalArgumentException("Forventa en tom data til umarshall av void");
@@ -120,8 +108,6 @@ public class RPCUtils {
 	public static byte[] marshallInteger(int x) {
 		
 		byte[] encoded = null;
-		
-		// TODO - START :: OK?
 
 		//  **Hint** Remember that an integer in Java is 4 bytes
 		encoded = new byte[4];
@@ -137,8 +123,7 @@ public class RPCUtils {
 	public static int unmarshallInteger(byte[] data) {
 		
 		int decoded = 0;
-		
-		// TODO - START :: OK? 
+
 		// |= er det samme som A = A | B; 
 
 		decoded |= (data[0] & 0xFF) << 24;

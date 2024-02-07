@@ -190,11 +190,11 @@ The implementation of the controller is to be provided in the `no.dat110.system.
 
 - [x]`Controller.java` - here you have to complete the implementation of the controller (client) such that it connects to the sensor and display RPC servers and implement a finite loop in which the temperature is retrieved from the sensor (using the read method) and shown on the display (using the write method).
 
-#### Display implementation
+#### Display implementation :: OK
 
 The implementation of the display is in the `no.hvl.dat110.system.display` package. You must implement the server-side of the `write` RPC method in the `DisplayImpl.java` and the display server in the `DisplayDevice.java` class.  You may use the sensor server implementation in `SensorDevice.java` and `SensorImpl` for inspiration.
 
-#### Sensor implementation
+#### Sensor implementation :: OK
 
 The implementation of the sensor is in the `no.hvl.dat110.system.sensor` package and can be used as inspiration for the implementation of the display.
 
