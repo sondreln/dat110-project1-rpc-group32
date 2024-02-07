@@ -8,7 +8,7 @@ public class Message {
 	// construction a Message with the data provided
 	public Message(byte[] data) {
 		
-		// TODO - START :: OK?
+		// TODO - START :: Skal være ok
 
 		if (data.length < MessageUtils.SEGMENTSIZE){
 			this.data = data;

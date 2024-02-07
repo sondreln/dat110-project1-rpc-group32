@@ -72,17 +72,23 @@ public class TestMessaging {
 							MessageUtils.MESSAGINGPORT);
 
 					MessageConnection connection = client.connect();
-					System.out.println(client.toString());
+					System.out.println("Hei.1");
 
 					Message message1 = new Message(clientsent);
+					System.out.println("Hei.2");
+					System.out.println(message1);
 
 					connection.send(message1);
+					System.out.println("Hei.3");
 
 					Message message2 = connection.receive();
+					System.out.println("Hei.4");
 
 					byte[] clientreceived = message2.getData();
+					System.out.println("Hei.5");
 
 					connection.close();
+					System.out.println("Hei.6");
 
 					System.out.println("Messaging client - stop");
 

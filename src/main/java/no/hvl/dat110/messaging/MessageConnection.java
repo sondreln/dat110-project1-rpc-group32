@@ -51,10 +51,10 @@ public class MessageConnection {
 
 	public Message receive() {
 
+		Message message = null;
 		byte[] data = new byte[MessageUtils.SEGMENTSIZE];
-		Message message = new Message(data);
 		
-		// TODO - START :: OK?
+		// TODO - START :: skal være ok?
 		// read a segment from the input stream and decapsulate data into a Message
 		
 		try {
@@ -76,7 +76,6 @@ public class MessageConnection {
 			
 			outStream.close();
 			inStream.close();
-
 			socket.close();
 			
 		} catch (IOException ex) {

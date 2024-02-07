@@ -22,7 +22,7 @@ public class MessagingClient {
 		// client-side socket for underlying TCP connection to messaging server
 		MessageConnection connection = null;
 		
-		// TODO - START :: OK?
+		// TODO - START :: Skal være ok?
 		// connect to messaging server using a TCP socket
 		// create and return a corresponding messaging connection
 
