@@ -41,22 +41,37 @@ public class RPCServer {
 		   byte rpcid = 0;
 		   Message requestmsg, replymsg;
 		   
-		   // TODO - START
-		   // - receive a Message containing an RPC request
-		   // - extract the identifier for the RPC method to be invoked from the RPC request
-		   // - lookup the method to be invoked
-		   // - invoke the method
-		   // - send back the message containing RPC reply
-			
-		   if (true)
-				throw new UnsupportedOperationException(TODO.method());
+		   // TODO - START :: ok?
 		   
+		   // - invoke the method
+		   try {
+			   // - receive a Message containing an RPC request
+			   requestmsg = connection.receive();
+			   if(requestmsg != null){
+				   // - extract the identifier for the RPC method to be invoked from the RPC request
+				   rpcid = requestmsg.getData()[0];
+				   
+				   // - lookup the method to be invoked
+				   RPCRemoteImpl service = services.get(rpcid);
+				   
+				   if(service != null){
+					   byte[] replyData = service.invoke(requestmsg.getData());
+					   replymsg = new Message(replyData);
+					   // - send back the message containing RPC reply
+					connection.send(replymsg);
+				}
+
+				// stop the server if it was stop methods that was called
+				if (rpcid == RPCCommon.RPIDSTOP) {
+					stop = true;
+				}
+			}
+		   } catch (Exception e) {
+				e.printStackTrace();
+				throw new RuntimeException("Kjøring av RPC failet");			
+		   }
 		   // TODO - END
 
-			// stop the server if it was stop methods that was called
-		   if (rpcid == RPCCommon.RPIDSTOP) {
-			   stop = true;
-		   }
 		}
 	
 	}

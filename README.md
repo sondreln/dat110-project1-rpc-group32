@@ -150,9 +150,9 @@ The implementation of the RPC layer is to be located in the `no.hvl.dat110.rpc` 
 
 - [x] `RPCUtils.java` containing utility methods for encapsulation/decapsulation for RPC messages, and the unmarshalling and marshalling of the supported data types. The implementation of the marshalling/unmarshalling of `booleans` is provided and can be used for inspiration. **Hint** Remember that an integer in Java is 4 bytes and see byte buffers in Java: https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/nio/ByteBuffer.html
 
-- [ ] `RPCClient.java` implementing the client-side of the RPC layer using the client-side of the underlying messaging layer for communication.
+- [x] `RPCClient.java` implementing the client-side of the RPC layer using the client-side of the underlying messaging layer for communication.
 
-- [ ] `RPCServer.java` implementing the server-side of the RPC layer using the server-side of the underlying messaging layer for communication. The server contains a hash-map which is used to register RPC classes containing methods for remote method calls (invocation).
+- [x] `RPCServer.java` implementing the server-side of the RPC layer using the server-side of the underlying messaging layer for communication. The server contains a hash-map which is used to register RPC classes containing methods for remote method calls (invocation).
 
 Unit-tests for the RPC utilities can be found in the `TestRPCUtils.java` class and unit-tests testing the remote procedure call mechanism can be found in the `TestRPC.java` class.  
 
