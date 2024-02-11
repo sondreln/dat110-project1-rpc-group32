@@ -18,7 +18,6 @@ public class DisplayImpl extends RPCRemoteImpl {
 		
 		byte[] returnval = null;
 		
-		// TODO - START: :: ok?
 		// implement unmarshalling, call, and marshall for write RPC method
 		// look at how this is done in the SensorImpl class for the read method
 		

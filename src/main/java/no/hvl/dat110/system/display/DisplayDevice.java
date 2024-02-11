@@ -10,13 +10,13 @@ public class DisplayDevice {
 		
 		System.out.println("Display server starting ...");
 		
-		// TODO - START :: ok?
 		// implement the operation of the display RPC server
 		// see how this is done for the sensor RPC server in SensorDevice
 
 		RPCServer displayServer = new RPCServer(Common.DISPLAYPORT);
 
-		DisplayImpl display = new DisplayImpl((byte)2, displayServer);
+		//DisplayImpl display = new DisplayImpl((byte)2, displayServer);
+		new DisplayImpl((byte)2, displayServer);
 
 		displayServer.run();
 

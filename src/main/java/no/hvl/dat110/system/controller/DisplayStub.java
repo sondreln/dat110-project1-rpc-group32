@@ -10,8 +10,6 @@ public class DisplayStub extends RPCLocalStub {
 	
 	public void write (String message) {
 		
-		// TODO - START :: OK?
-		
 		// implement marshalling, call and unmarshalling for write RPC method
 		byte[] request = RPCUtils.marshallString(message);
 

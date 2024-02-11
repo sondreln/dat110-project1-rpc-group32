@@ -23,8 +23,6 @@ public class Controller  {
 		// setup stop methods in the RPC middleware
 		RPCClientStopStub stopdisplay = new RPCClientStopStub(displayclient);
 		RPCClientStopStub stopsensor = new RPCClientStopStub(sensorclient);
-				
-		// TODO - START :: ok?
 		
 		// create local display and sensor stub objects
 		// connect to sensor and display RPC servers
