@@ -26,7 +26,7 @@ public class DisplayImpl extends RPCRemoteImpl {
 
 		write(message);
 		
-		returnval = RPCUtils.marshallVoid();
+		returnval = RPCUtils.marshallString(message);
 		
 		return returnval;
 	}

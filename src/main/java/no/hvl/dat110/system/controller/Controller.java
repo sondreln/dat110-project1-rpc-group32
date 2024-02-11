@@ -33,9 +33,17 @@ public class Controller  {
 		display = new DisplayStub(displayclient);
 		sensor = new SensorStub(sensorclient);
 
-		for(int i = 0; i < N; i ++){
-			int temperature = sensor.read();
-			display.write("Temperature: " + temperature);
+		displayclient.connect();
+		sensorclient.connect();
+
+		for(int i = 0; i < N; i++) {
+			int verdi = sensor.read();
+			display.write(verdi + "°C");
+			try {
+				Thread.sleep(5000);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 		stopdisplay.stop();

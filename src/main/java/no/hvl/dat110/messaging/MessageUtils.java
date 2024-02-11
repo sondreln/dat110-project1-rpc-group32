@@ -11,21 +11,18 @@ public class MessageUtils {
 
 	public static byte[] encapsulate(Message message) {
 		
-		byte[] segment;
-		byte[] data;
-		
-		segment = new byte[SEGMENTSIZE];
+		byte[] segment = null;
+		byte[] data = null;
 		
 		data = message.getData();
-
-		if(data.length > SEGMENTSIZE - 1) {
-			throw new IllegalArgumentException("Message data er for stor!");
+		segment = new byte [SEGMENTSIZE];
+		
+	
+		segment[0] = (byte) message.getData().length;
+		for (int i = 1; i <= message.getData().length; i++) {
+			segment[i] = data[i - 1];
 		}
-
-		segment[0] = (byte) data.length;
-
-		System.arraycopy(data, 0, segment, 1, data.length);
-			
+	
 		return segment;
 		
 	}
@@ -34,11 +31,13 @@ public class MessageUtils {
 
 		Message message = null;
 		
-		int size = segment[0];
-
-		byte[] data = new byte[size];
-		System.arraycopy(segment, 1, data, 0, size);
+		int lengde = segment[0];
 		
+		byte[] data = new byte[lengde];
+		
+		for(int i = 0; i < lengde; i++) {
+			data[i] = segment[i + 1];
+		}
 		message = new Message(data);
 		
 		return message;

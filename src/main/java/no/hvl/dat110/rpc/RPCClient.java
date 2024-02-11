@@ -1,5 +1,6 @@
 package no.hvl.dat110.rpc;
 
+import no.hvl.dat110.TODO;
 import no.hvl.dat110.messaging.*;
 
 public class RPCClient {
@@ -20,13 +21,7 @@ public class RPCClient {
 		// TODO - START :: OK?
 		// connect using the RPC client
 		
-		try {
-			connection = msgclient.connect();
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("Feil på oppkobling til RPC server");
-		}
+		connection = msgclient.connect();
 	}
 	
 	public void disconnect() {
@@ -34,15 +29,7 @@ public class RPCClient {
 		// TODO - START
 		// disconnect by closing the underlying messaging connection
 		
-		if (connection != null){
-			try {
-				connection.close();
-				connection = null;
-			} catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException("Feil på frakobling til RPC server");
-			}
-		}
+		connection.close();
 	}
 
 	/*
@@ -55,10 +42,9 @@ public class RPCClient {
 	public byte[] call(byte rpcid, byte[] param) {
 		
 		byte[] returnval = null;
-		byte[] rpcReq = RPCUtils.encapsulate(rpcid, param);
 
 
-		// TODO - START
+	
 
 		/*
 
@@ -68,19 +54,12 @@ public class RPCClient {
 
 		*/
 				
-		try {
-			connection.send(new Message(rpcReq));
+		Message requestMessage = new Message(RPCUtils.encapsulate(rpcid, param));
+		
+		connection.send(requestMessage);
+		
+		returnval = RPCUtils.decapsulate(connection.receive().getData());
 
-			Message reply = connection.receive();
-
-			byte[] rpcReply = reply.getData();
-
-			returnval = RPCUtils.decapsulate(rpcReply);
-
-			return returnval;
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException("RPC-call feilet");
-		}
+		return returnval;
 	}
 }

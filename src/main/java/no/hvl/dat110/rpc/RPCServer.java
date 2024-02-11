@@ -42,33 +42,31 @@ public class RPCServer {
 		   
 		   // TODO - START :: ok?
 		   
-		   // - invoke the method
-		   try {
-			   // - receive a Message containing an RPC request
-			   requestmsg = connection.receive();
-			   if(requestmsg != null){
-				   // - extract the identifier for the RPC method to be invoked from the RPC request
-				   rpcid = requestmsg.getData()[0];
-				   
-				   // - lookup the method to be invoked
-				   RPCRemoteImpl service = services.get(rpcid);
-				   
-				   if(service != null){
-					   byte[] replyData = service.invoke(requestmsg.getData());
-					   replymsg = new Message(replyData);
-					   // - send back the message containing RPC reply
-					connection.send(replymsg);
-				}
+		   requestmsg = connection.receive();
 
-				// stop the server if it was stop methods that was called
-				if (rpcid == RPCCommon.RPIDSTOP) {
-					stop = true;
-				}
+		   // - find the identifier for the RPC method to invoke
+		   // - lookup the method to be invoked
+		   // - invoke the method
+		   // - send back message containing RPC reply
+			
+			byte[] encoded = requestmsg.getData();
+			
+			rpcid = encoded[0];
+			
+			RPCRemoteImpl rpcimpl = services.get(rpcid);
+			
+			byte[] returnVal = rpcimpl.invoke(RPCUtils.decapsulate(encoded));
+			
+
+			replymsg = new Message(RPCUtils.encapsulate(rpcid, returnVal));
+			
+			connection.send(replymsg);
+
+			// stop the server if it was stop methods that was called
+			if (rpcid == RPCCommon.RPIDSTOP) {
+				stop = true;
 			}
-		   } catch (Exception e) {
-				e.printStackTrace();
-				throw new RuntimeException("Kjøring av RPC failet");			
-		   }
+		
 		}	
 	}
 	

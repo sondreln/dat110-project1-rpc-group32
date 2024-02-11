@@ -31,20 +31,14 @@ public class MessageConnection {
 
 	public void send(Message message) {
 
+		byte[] data;
 		
-		// TODO - START :: OK?
-		// encapsulate the data contained in the Message and write to the output stream
+		data = MessageUtils.encapsulate(message);
 		
-		//data = MessageUtils.encapsulate(message);
 		try {
-			//byte[] data = MessageUtils.encapsulate(message);
-			outStream.write(MessageUtils.encapsulate(message));
-			//outStream.flush();
-			
-
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			throw new RuntimeException("Feil med sending av melding");
+			outStream.write(data);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 
 	}
@@ -52,18 +46,16 @@ public class MessageConnection {
 	public Message receive() {
 
 		Message message = null;
-		byte[] data = new byte[MessageUtils.SEGMENTSIZE];
+		byte[] data = new byte[128];
 		
-		// TODO - START :: skal være ok?
-		// read a segment from the input stream and decapsulate data into a Message
-		
-		try {
-			inStream.read(data);
-			message = MessageUtils.decapsulate(data);
 
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
+			try {
+				inStream.read(data);
+				message = MessageUtils.decapsulate(data);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		
 		
 		return message;
 		

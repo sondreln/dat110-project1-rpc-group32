@@ -28,12 +28,12 @@ public class MessagingClient {
 
 		try {
 			Socket clientSocket = new Socket(server, port);
+			
 			connection = new MessageConnection(clientSocket);
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} 
+			
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 
 		return connection;
 	}

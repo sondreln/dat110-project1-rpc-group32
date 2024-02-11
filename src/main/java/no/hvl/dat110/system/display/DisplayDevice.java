@@ -1,7 +1,5 @@
 package no.hvl.dat110.system.display;
 
-import no.hvl.dat110.TODO;
-import no.hvl.dat110.rpc.RPCCommon;
 import no.hvl.dat110.rpc.RPCServer;
 import no.hvl.dat110.system.controller.Common;
 
@@ -18,7 +16,7 @@ public class DisplayDevice {
 
 		RPCServer displayServer = new RPCServer(Common.DISPLAYPORT);
 
-		DisplayImpl display = new DisplayImpl((byte)Common.READ_RPCID, displayServer);
+		DisplayImpl display = new DisplayImpl((byte)2, displayServer);
 
 		displayServer.run();
 

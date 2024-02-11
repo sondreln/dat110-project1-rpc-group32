@@ -2,6 +2,7 @@ package no.hvl.dat110.messaging;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class MessagingServer {
 
@@ -30,11 +31,10 @@ public class MessagingServer {
 		// accept TCP connection on welcome socket and create messaging connection to be returned
 
 		try {
-			welcomeSocket.accept();
-		} catch (IOException ex) {
-			ex.printStackTrace();
-			throw new RuntimeException("Kunne ikkje åpne kobling");
-
+			Socket ConnectionSocket = welcomeSocket.accept();
+			connection = new MessageConnection(ConnectionSocket);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		
 		return connection;
